@@ -1,6 +1,14 @@
+# 0 Provisitioning serverless
+oc adm new-project istio-system && oc adm new-project knative-serving && oc adm new-project knative-eventing
+servicemesh
+serverless
+pipeline
+eventing
+
 # 1 serverless app from console
 
 git: https://github.com/ryanzhang/openshift-knative-application
+
 ref: polish-style  
 context: go
 

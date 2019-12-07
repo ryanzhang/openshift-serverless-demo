@@ -1,0 +1,60 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"serving.knative.dev/v1","kind":"Service","metadata":{"annotations":{"serving.knative.dev/creator":"opentlc-mgr","serving.knative.dev/lastModifier":"opentlc-mgr"},"creationTimestamp":"2019-12-01T07:38:42Z","generation":6,"name":"hello","namespace":"lenovo-knative","resourceVersion":"70793","selfLink":"/apis/serving.knative.dev/v1/namespaces/lenovo-knative/services/hello","uid":"9975873d-140d-11ea-a535-060e949383ea"},"spec":{"template":{"metadata":{"annotations":{"app.openshift.io/vcs-ref":"master","app.openshift.io/vcs-uri":"https://github.com/ryanzhang/openshift-knative-application.git","autoscaling.knative.dev/target":"10"},"creationTimestamp":null,"labels":{"app.kubernetes.io/component":"hello","app.kubernetes.io/instance":"hello","app.kubernetes.io/name":"golang","app.kubernetes.io/part-of":"greeting","app.openshift.io/runtime":"golang","app.openshift.io/runtime-version":"1.11.5"},"name":"hello-v3"},"spec":{"containerConcurrency":0,"containers":[{"image":"image-registry.openshift-image-registry.svc:5000/lenovo-knative/hello:v2","name":"user-container","readinessProbe":{"successThreshold":1,"tcpSocket":{"port":0}},"resources":{"limits":{"cpu":"1","memory":"200M"},"requests":{"cpu":"400m","memory":"100M"}}}],"timeoutSeconds":300}},"traffic":[{"latestRevision":false,"percent":0,"revisionName":"hello-v2","tag":"current"},{"latestRevision":false,"percent":0,"revisionName":"hello-v1","tag":"prev"},{"latestRevision":true,"percent":100,"tag":"latest"}]},"status":{"address":{"url":"http://hello.lenovo-knative.svc.cluster.local"},"conditions":[{"lastTransitionTime":"2019-12-01T08:24:14Z","status":"True","type":"ConfigurationsReady"},{"lastTransitionTime":"2019-12-01T08:32:29Z","status":"True","type":"Ready"},{"lastTransitionTime":"2019-12-01T08:32:29Z","status":"True","type":"RoutesReady"}],"latestCreatedRevisionName":"hello-v2","latestReadyRevisionName":"hello-v2","observedGeneration":6,"traffic":[{"latestRevision":false,"percent":80,"revisionName":"hello-v2","tag":"current","url":"http://current-hello.lenovo-knative.apps.cluster-beijing-8203.beijing-8203.example.opentlc.com"},{"latestRevision":false,"percent":20,"revisionName":"hello-v1","tag":"prev","url":"http://prev-hello.lenovo-knative.apps.cluster-beijing-8203.beijing-8203.example.opentlc.com"},{"latestRevision":true,"percent":0,"revisionName":"hello-v2","tag":"latest","url":"http://latest-hello.lenovo-knative.apps.cluster-beijing-8203.beijing-8203.example.opentlc.com"}],"url":"http://hello.lenovo-knative.apps.cluster-beijing-8203.beijing-8203.example.opentlc.com"}}
+    serving.knative.dev/creator: opentlc-mgr
+    serving.knative.dev/lastModifier: opentlc-mgr
+  creationTimestamp: "2019-12-01T07:38:42Z"
+  generation: 8
+  name: hello
+  namespace: lenovo-knative
+  resourceVersion: "77684"
+  selfLink: /apis/serving.knative.dev/v1/namespaces/lenovo-knative/services/hello
+  uid: 9975873d-140d-11ea-a535-060e949383ea
+spec:
+  template:
+    metadata:
+      annotations:
+        app.openshift.io/vcs-ref: master
+        app.openshift.io/vcs-uri: https://github.com/ryanzhang/openshift-knative-application.git
+        autoscaling.knative.dev/target: "10"
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: hello
+        app.kubernetes.io/instance: hello
+        app.kubernetes.io/name: golang
+        app.kubernetes.io/part-of: greeting
+        app.openshift.io/runtime: golang
+        app.openshift.io/runtime-version: 1.11.5
+      name: hello-v3
+    spec:
+      containerConcurrency: 0
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/lenovo-knative/hello:v2
+        name: user-container
+        readinessProbe:
+          successThreshold: 1
+          tcpSocket:
+            port: 0
+        resources:
+          limits:
+            cpu: "1"
+            memory: 200M
+          requests:
+            cpu: 400m
+            memory: 100M
+      timeoutSeconds: 300
+  traffic:
+  - latestRevision: false
+    percent: 100
+    revisionName: hello-v3
+    tag: current
+  - latestRevision: false
+    percent: 0
+    revisionName: hello-v1
+    tag: prev
+  - latestRevision: true
+    percent: 0
+    tag: latest
