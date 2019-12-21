@@ -6,7 +6,7 @@ spec:
   params:
   - name: mavenMirrorUrl
     description: the maven mirror
-    default: http://repo1.maven.apache.org/maven2
+    default: http://nexus.default.svc:8081/nexus/content/groups/public
   resources: 
   - name: appSource
     type: git

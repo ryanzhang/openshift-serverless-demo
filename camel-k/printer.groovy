@@ -28,7 +28,7 @@ from('knative:channel/words')
 // camel {
 //   components {
 //     slack {
-//       webhookUrl 'https://hooks.slack.com/services/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'
+//       webhookUrl 'https://hooks.slack.com/services/YourOwnWebHook'
 //     }
 //   }
 // }

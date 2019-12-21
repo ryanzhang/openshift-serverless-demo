@@ -6,7 +6,7 @@ spec:
   type: git
   params: 
   - name: url
-    value: https://github.com/ryanzhang/openshift-knative-application
+    value: https://github.com/ryanzhang/openshift-demo-application
   - name: revision
     value: master
 ---
@@ -18,4 +18,4 @@ spec:
   type: image
   params: 
   - name: url
-    value: "image-registry.openshift-image-registry.svc:5000/lenovo-knative/quarkus-app:v0.1"
+    value: "image-registry.openshift-image-registry.svc:5000/bootcamp-serverless/quarkus-app:v0.1"

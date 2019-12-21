@@ -1,0 +1,35 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/image.dockerRepositoryCheck: "2019-12-19T03:58:22Z"
+    openshift.io/display-name: Quarkus -Supersonic Java
+    openshift.io/provider-display-name: Red Hat, Inc.
+  creationTimestamp: "2019-12-19T03:58:22Z"
+  generation: 1
+  name: quarkus
+  namespace: openshift
+  resourceVersion: "1124648"
+  selfLink: /apis/image.openshift.io/v1/namespaces/openshift/imagestreams/quarkus
+  uid: ccaaa49c-2213-11ea-9b1d-0a580a800076
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations: 
+      description: Build and run Java Quarkus applications using Maven and OpenJDK 11.
+      iconClass: icon-rh-openjdk
+      openshift.io/display-name: Quarkus 19.2.1
+      sampleContextDir: getting-started
+      sampleRepo: https://github.com/quarkusio/quarkus-quickstarts.git
+      supports: java:11,java,quarkus
+      tags: builder,java,openjdk
+    from:
+      kind: DockerImage
+      name: quay.io/quarkus/ubi-quarkus-native-s2i:19.2.1
+    generation: 1
+    importPolicy: {}
+    name: 19.2.1
+    referencePolicy:
+      type: Local
+

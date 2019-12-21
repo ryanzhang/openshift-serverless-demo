@@ -21,7 +21,7 @@ from('timer:clock?period=3s')
 	.to('knative:channel/messages')
 	.log('sent message to messages channel')
 
-// from('telegram:bots?authorizationToken=1022365814:AAHoM4z0Shz3x7Fiivn6Namz2n0i2pcKieM')
+// from('telegram:bots?authorizationToken=YourOwnAuthToken')
 //   .convertBodyTo(String.class)
 //   .to('log:info')
 //   .to('knative:channel/messages')
